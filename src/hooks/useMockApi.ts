@@ -73,7 +73,7 @@ const useMockApi = () => {
     setPets(p => p.filter(c => c.id === pet.id).concat(pet));
   };
 
-  const create = (info: Partial<PetInfo>) => {
+  const generate = (info: Partial<PetInfo>) => {
     const randomPet = {
       ...info,
       temperature: randomFloat(
@@ -85,13 +85,18 @@ const useMockApi = () => {
         HEARTRATE_BOUNDRIES.max,
       ),
     } as PetInfo;
+    return randomPet;
+  };
+
+  const create = (info: Partial<PetInfo>) => {
+    const randomPet = generate(info);
 
     add(randomPet);
 
     return randomPet;
   };
 
-  return {pets, remove, add, create, setPets};
+  return {pets, remove, add, create, setPets, generate};
 };
 
 export default useMockApi;

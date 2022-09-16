@@ -4,6 +4,7 @@ import {createMaterialBottomTabNavigator} from '@react-navigation/material-botto
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Home from '@root/pages/Home';
+import Pets from './pages/Pets';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -30,7 +31,7 @@ const Router = () => {
       />
       <Tab.Screen
         name="Pets"
-        component={Home}
+        component={Pets}
         options={{
           tabBarLabel: 'Pets',
           tabBarIcon: ({color}) => (
